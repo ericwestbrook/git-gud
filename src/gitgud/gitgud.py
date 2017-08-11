@@ -15,7 +15,7 @@ class git(object):
     def fig(text):
         fig = pyfiglet.Figlet()
         return fig.renderText(text)
-    
+
     @staticmethod
     def gud():
         args = git.parse_args("good")
@@ -24,6 +24,17 @@ class git(object):
         text = "{name} {verb} now {qual} gud!".format(name=name,
                                                       verb="is" if args.name else "are",
                                                       qual="super" if sup else "so")
+        if sup:
+            text = git.fig(text)
+        print(text)
+
+    @staticmethod
+    def hyped():
+        args = git.parse_args("hyped")
+        name = args.name or "You"
+        sup = args.super
+        text = "{name} is bringing the hype!"
+
         if sup:
             text = git.fig(text)
         print(text)
@@ -56,19 +67,18 @@ class git(object):
         name = args.name or "You"
         sup = args.super
         text = "{name} got a job in gitting #rekt!".format(name=name)
-        
+
         if sup:
             text = git.fig(text)
         print(text)
-    
+
     @staticmethod
     def money():
         args = git.parse_args("money")
         name = args.name or "You"
         sup = args.super
         text = "{name} got money!".format(name=name)
-        
+
         if sup:
             text = git.fig(text)
         print(text)
-                                                            
